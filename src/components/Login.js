@@ -3,8 +3,8 @@ import {useHistory} from 'react-router'
 import axios from "axios";
 
 const initialFormValues = {
-  username: "Lambda School",
-  password: "i<3Lambd4"
+  username: "",
+  password: ""
 }
 
 const Login = () => {
