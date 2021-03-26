@@ -58,6 +58,9 @@ const Login = () => {
             />
           </label>
 
+          <button type="submit">
+            Login
+          </button>
         </form>
       </h1>
     </>
