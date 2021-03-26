@@ -9,7 +9,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        
         <PrivateRoute path="/bubbles" component={BubblePage} />  
         <Route exact path="/" component={Login} />
       </div>

@@ -4,7 +4,7 @@ import axios from "axios";
 
 const initialFormValues = {
   username: "Lambda School",
-  password: "i<3Lambda4"
+  password: "i<3Lambd4"
 }
 
 const Login = () => {
@@ -12,17 +12,16 @@ const Login = () => {
   const [formValues, setFormValues] = useState
     (initialFormValues)
 
-  // useEffect(() => {
-    
-  // });
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:5000/api/login`)
+    axios.post(`http://localhost:5000/api/login`, formValues)
       .then(res => {
         console.log(res.data)
-        window.localStorage.setItem("token", res.data)
+        localStorage.setItem("token", res.data.payload)
         push('/bubbles')
+      })
+      .catch(err => {
+        console.log(err)
       })
   }
 
@@ -58,7 +57,7 @@ const Login = () => {
             />
           </label>
 
-          <button type="submit">
+          <button>
             Login
           </button>
         </form>
@@ -69,6 +68,5 @@ const Login = () => {
 
 export default Login;
 
-//3. MAKE SURE THAT FORM INPUTS INCLUDE THE LABEL TEXT "username" and "password" RESPECTIVELY.
 //4. If either the username or password is not displaied display EXACTLY the following words: Username or Password not valid.
 //5. If the username / password is equal to Lambda School / i<3Lambd4, save that token to localStorage.
